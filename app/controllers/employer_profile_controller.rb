@@ -66,23 +66,19 @@ class EmployerProfileController < ApplicationController
       @post = EmployerProfile.find(params[:id])
     end
 
-
-    # create_table "employee_profiles", force: :cascade do |t|
+    #
+    # create_table "employer_profiles", force: :cascade do |t|
     #   t.string   "username"
-    #   t.string   "specialties"
-    #   t.string   "age"
-    #   t.string   "education"
-    #   t.string   "experience"
-    #   t.string   "expected_salary"
+    #   t.string   "postion_need"
+    #   t.string   "requirement"
+    #   t.string   "salary_suggest"
     #   t.string   "description"
-    #   t.string   "fb_name"
-    #   t.datetime "created_at",      null: false
-    #   t.datetime "updated_at",      null: false
+    #   t.datetime "created_at",     null: false
+    #   t.datetime "updated_at",     null: false
     # end
-
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:username, :specialties, :age, :education, :experience, :expected_salary, :description, :fb_name)
+      params.require(:employer).permit(:username, :postion_need, :requirement, :salary_suggest, :description, :fb_name)
     end
 end
