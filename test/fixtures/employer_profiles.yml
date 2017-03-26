@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  postion_need: MyString
+  requirement: MyString
+  salary_suggest: MyString
+  description: MyString
+
+two:
+  username: MyString
+  postion_need: MyString
+  requirement: MyString
+  salary_suggest: MyString
+  description: MyString
