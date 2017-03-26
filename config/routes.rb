@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :employee_profile
+  resources :employer_profile
 
   devise_for :users
     namespace :api, defaults:{ format: :json }do
