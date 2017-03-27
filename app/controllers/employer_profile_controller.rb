@@ -24,6 +24,7 @@ class EmployerProfileController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    raise employee_params.to_json
     @post = EmployerProfile.new(employee_params)
     # @post.user = @current_user
 

@@ -19,7 +19,7 @@ class Api::V1::UsersController < ApplicationController
   def login
     user = User.find_by_email(params[:user][:email])
     if user.valid_password?(params[:user][:password])
-      render json: { success: true }
+      render json: { success: true }, json: user.id
     else
       render json: { success: false }, status: :unauthorized
     end

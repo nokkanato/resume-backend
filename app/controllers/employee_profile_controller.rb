@@ -22,13 +22,19 @@ class EmployeeProfileController < ApplicationController
   end
 
   # POST /posts
-  # POST /posts.json
-  def create
-    @post = EmployeeProfile.new(employee_params)
-    # @post.user = @current_user
+  # POST
 
-    # respond_to do |format|
-    #   if @post.save
+  # params.require([:first_name, :last_name, :specialties, :age, :education, :experience, :expected_salary, :description, :fb_name])
+#
+
+  def create
+    @post = EmployeeProfile.new
+    @post.name = employee_params[0]
+    @post.address = employee_params[1]
+    @post.phone_no = employee_params[2]
+    @post.email = employee_params[3]
+
+
     if @post.save
      render json: @post, status: 201
     else
@@ -66,23 +72,19 @@ class EmployeeProfileController < ApplicationController
       @post = EmployeeProfile.find(params[:id])
     end
 
-
-    # create_table "employee_profiles", force: :cascade do |t|
-    #   t.string   "username"
-    #   t.string   "specialties"
-    #   t.string   "age"
-    #   t.string   "education"
-    #   t.string   "experience"
-    #   t.string   "expected_salary"
-    #   t.string   "description"
-    #   t.string   "fb_name"
-    #   t.datetime "created_at",      null: false
-    #   t.datetime "updated_at",      null: false
-    # end
+    #  id          :integer          not null, primary key
+    #  description :string
+    #  created_at  :datetime         not null
+    #  updated_at  :datetime         not null
+    #  name        :string
+    #  address     :string
+    #  email       :string
+    #  phone_no    :string
+    #
 
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:first_name, :last_name, :specialties, :age, :education, :experience, :expected_salary, :description, :fb_name)
+      params.require([:name, :address, :phone_no, :email])
     end
 end
